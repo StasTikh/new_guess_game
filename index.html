@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./dialog-polyfill.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+    <script src="./dialog-polyfill.js"></script>
+    <title>Guess Game 2.0</title>
+</head>
+<body onload="game()">
+    <div class="container">
+      
+      <div class="card m-auto mt-5" style="width: 18rem;">
+       <img src="https://i.ytimg.com/vi/gMRAb7hSLeI/hqdefault.jpg" alt="">
+        <div class="card-body text-center">
+          <h5 class="card-title">Загадай число!</h5>
+          <p class="card-text text-justify">Загадай целое число от 1 до 100. </br> Я буду угадывать, а ты подсказывай, больше или меньше.</p>
+          <div class="buttons1 d-flex text-center justify-content-between">    
+            <a class="btn btn-success" onclick="startGame1()">Manually</a>
+            <a class="btn btn-primary" onclick="startGame2()">Automatic</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+    <dialog id="dialog1">  
+      <div class="text-end mb-3">
+				<i onclick="closeGame()" class="far fa-window-close fa-2x"></i>
+			</div>
+        <div class="card m-auto mt-5" style="width: 18rem;">
+              <div id="answerField2" class="alert alert-success text-center" role="alert">
+                  Тут будет ответ.
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">Загадай число!</h5>
+                <p id="winField2" class="card-text text-justify">Загадай целое число от 1 до 100. </br> Я буду угадывать, а ты подсказывай, больше или меньше.</p>
+                <a id="btn2" class="mb-2 btn btn-primary">Начать</a>
+                <div class="buttons1 d-flex text-center justify-content-between">    
+                  <a id="small2" class="btn btn-warning" style="display: none;">Меньше</a>
+                  <a id="big2" class="btn btn-danger" style="display: none;">Больше</a>
+                </div>
+                <a id="win2" class="mt-2 btn btn-success" style="display: none;">Угадал!</a>
+                <a id="restartGame2" class="mt-2 btn btn-info" style="display: none;">Заново!</a>
+              </div>
+        </div>
+    </dialog>
+    
+    <dialog id="dialog2">
+      <div class="text-end mb-3">
+				<i onclick="closeGame2()" class="far fa-window-close fa-2x"></i>
+			</div>
+      <div class="card m-auto mt-5" style="width: 18rem;">
+        <div id="answerField" class="alert alert-success text-center" role="alert">
+            Тут будет ответ.
+          </div>
+        <div class="card-body text-center">
+          <h5 class="card-title" id="cardTitle">Загадай число!</h5>
+          <p id="winField" class="card-text text-justify">Загадай целое число от 1 до любого заданного тобой. </br> Я буду угадывать, а ты подсказывай, больше или меньше.</p>
+          <small style="display: none;" id="moreTry" class="text-danger mt-1 mb-4"></small>
+          <div class="form-group text-center mb-3">
+            <form> 
+              <input oninput="isNumber()" type="text" class="form-control text-center mb-1" id="endNum" placeholder="Введите конечное число">
+              <small style="display: none;" id="noNum" class="text-danger mt-1 mb-4"></small>
+            </form>
+          </div>
+          <a id="btnStart" class="mb-2 btn btn-primary" onclick="guessAlex()">Задать</a>
+          <a id="btn" class="mb-2 btn btn-primary" style="display: none;">Начать</a>
+          <div class="buttons1 d-flex text-center justify-content-between">    
+            <a id="small" class="btn btn-warning" style="display: none;">Меньше</a>
+            <a id="big" class="btn btn-danger" style="display: none;">Больше</a>
+          </div>
+          <a id="win" class="mt-2 btn btn-success" style="display: none;">Угадал!</a>
+          <a id="restartGame" class="mt-2 btn btn-info" style="display: none;">Заново!</a>
+        </div>
+      </div>
+    </dialog>
+
+
+    </div>
+    <script src="./app.js"></script>
+    <script src="./app2.js"></script>
+</body>
+</html>
